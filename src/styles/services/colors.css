@@ -1,0 +1,30 @@
+:root {
+    /* Primary Colors */
+    --primary-color: #333652;
+    --secondary-color: #E9EAEC;
+    --tertary-color: #90ADC6;
+    /* System Colors */
+    --background-color: #E5E5E5;
+    --textHeader-color: #ffffff;
+    --textBody-color: #333652;
+    --border-color: #ffffff;
+    /* Type Colors */
+    --bug-color: #89960B;
+    --dark-color: #322C26;
+    --dragon-color: #6B57D2;
+    --fairy-color: #DA93DD;
+    --fighting-color: #80311D;
+    --fire-color: #EC5D35;
+    --ghost-color: #AD6EEC;
+    --grass-color: #68BB2B;
+    --ground-color: #D0B155;
+    --normal-color: #C3C0B8;
+    --poison-color: #924694;
+    --psychic-color: #DA3063;
+    --steel-color: #8F8E9E;
+    --water-color: #5CC1ED;
+    --electric-color: #F4CB38;
+    --ice-color: #9BDEFB;
+    --flying-color: #5D74D5;
+    --rock-color: #9D853C;
+}

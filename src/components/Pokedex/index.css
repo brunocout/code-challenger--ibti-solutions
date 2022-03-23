@@ -1,0 +1,9 @@
+.pokedex-container {
+    margin: 5px auto;
+    padding: 1rem;
+
+}
+
+.pokedex-container h1 {
+    font-weight: bold;
+}
