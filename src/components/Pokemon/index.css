@@ -1,0 +1,133 @@
+.pokemon {
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.pokemon-id {
+    display: flex;
+    background-color: var(--tertary-color);
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    border-radius: 50%;
+    font-size: 0.7rem;
+    color: var(--textHeader-color);
+}
+
+.pokemon-sprite {
+    margin: auto;
+    width: 80%;
+}
+
+.pokemon-info h1 {
+    font-size: 0.8rem;
+}
+
+.pokemon-types {
+    margin: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.type1 {
+    width: 35px;
+    height: 0px;
+}
+
+.type2 {
+    width: 35px;
+    height: 0px;
+}
+
+.bug {
+    border: 1px solid var(--bug-color);
+    fill: var(--bug-color);
+}
+
+.dark {
+    border: 1px solid var(--dark-color);
+    fill: var(--dark-color);
+}
+
+.dragon {
+    border: 1px solid var(--dragon-color);
+    fill: var(--dragon-color);
+}
+
+.fairy {
+    border: 1px solid var(--fairy-color);
+    fill: var(--fairy-color);
+}
+
+.fighting {
+    border: 1px solid var(--fighting-color);
+    fill: var(--fighting-color);
+}
+
+.fire {
+    border: 1px solid var(--fire-color);
+    fill: var(--fire-color);
+}
+
+.ghost {
+    border: 1px solid var(--ghost-color);
+    fill: var(--ghost-color);
+}
+
+.grass {
+    border: 1px solid var(--grass-color);
+    fill: var(--grass-color);
+}
+
+.ground {
+    border: 1px solid var(--ground-color);
+    fill: var(--ground-color);
+}
+
+.normal {
+    border: 1px solid var(--normal-color);
+    fill: var(--normal-color);
+}
+
+.poison {
+    border: 1px solid var(--poison-color);
+    fill: var(--poison-color);
+}
+
+.psychic {
+    border: 1px solid var(--psychic-color);
+    fill: var(--psychic-color);
+}
+
+.steel {
+    border: 1px solid var(--steel-color);
+    fill: var(--steel-color);
+}
+
+.water {
+    border: 1px solid var(--water-color);
+    fill: var(--water-color);
+}
+
+.electric {
+    border: 1px solid var(--electric-color);
+    fill: var(--electric-color);
+}
+
+.ice {
+    border: 1px solid var(--ice-color);
+    fill: var(--ice-color);
+}
+
+.flying {
+    border: 1px solid var(--flying-color);
+    fill: var(--flying-color);
+}
+
+.rock {
+    border: 1px solid var(--rock-color);
+    fill: var(--rock-color);
+}

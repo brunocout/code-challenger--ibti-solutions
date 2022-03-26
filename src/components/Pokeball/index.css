@@ -1,3 +1,13 @@
 .pokeball {
-    margin: 10px;
+    display: flex;
+    margin: 10px auto;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
 }
+
+.pokeball img {
+    width: 100%;
+}
+

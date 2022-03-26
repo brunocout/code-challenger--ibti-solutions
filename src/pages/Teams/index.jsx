@@ -1,5 +1,5 @@
 import Header from '../../components/Header';
-import MyTeam from '../../components/MyTeam';
+import MyTeam from '../../components/Team/MyTeam';
 import './index.css'
 
 const Teams = () => {

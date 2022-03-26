@@ -1,5 +1,5 @@
 import React from 'react';
-import Pokeball from '../../components/Pokeball';
+import Pokeball from '../../Pokeball';
 import './index.css'
 
 const MyTeam = ({ className = '' }) => {

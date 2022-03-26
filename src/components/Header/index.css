@@ -16,5 +16,6 @@
     text-transform: uppercase;
     font-weight: bold;
     color: var(--textHeader-color);
+    font-size: 1rem;
     cursor: pointer;
 }

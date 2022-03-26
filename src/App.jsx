@@ -1,16 +1,20 @@
 import React from 'react';
 import { BrowserRouter as Router} from "react-router-dom";
-import './App.css'
 import Routes from './Routes';
+import Provider from './hooks/context/Context';
+import './App.css'
+
 
 function App() {
 
   return (
-    <Router>
-      <div className="App">
-        <Routes />
-      </div>
-    </Router>
+    <div className="App">
+      <Provider>
+        <Router>
+            <Routes />
+        </Router>
+      </Provider>
+    </div>
   )
 }
 

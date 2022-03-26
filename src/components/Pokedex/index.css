@@ -7,3 +7,29 @@
 .pokedex-container h1 {
     font-weight: bold;
 }
+
+.search-input input {
+    font-family: 'Spartan', sans-serif;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.search-input {
+    margin: 10px;
+    width: 93%;
+}
+
+.search-input input:focus-within {
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.pokemons {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 400px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
