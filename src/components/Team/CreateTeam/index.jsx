@@ -6,7 +6,7 @@ import './index.css'
 
 const CreateTeam = ({ className = ''}) => {
 
-    const { id } = useContext(AppContext)
+    const { id, setRemovedPokemon } = useContext(AppContext)
 
     const position = {
         position: 'absolute'
@@ -18,7 +18,7 @@ const CreateTeam = ({ className = ''}) => {
                 <input type="text" placeholder='My Team'/><Edit />
             </div>
             <div className="pokeball-container">
-                {id.map(item => <Pokeball item={item} position={position}/>) }
+                {id.map(id => <Pokeball id={id} position={position} setRemovedPokemon={setRemovedPokemon}/>) }
             </div>
         </div>
      );

@@ -4,11 +4,11 @@ export const AppContext = createContext()
 
 export default function Provider({ children }) {
 
+    const [removedPokemon, setRemovedPokemon] = useState('')
     const [pokemons, setPokemons] = useState([])
     const [id, setId] = useState(new Array(6).fill(null))
 
-
-    function setSlot(newPokemon) {
+    const setSlot = (newPokemon) => {
         const newSlots = [...id];
         for (let i = 0; i < newSlots.length; i += 1) {
           const pokemon = newSlots[i];
@@ -19,8 +19,15 @@ export default function Provider({ children }) {
         }
     }
 
+    const removeFromSlot = () => {
+        if (removedPokemon.length != 0 && id !== null) {
+            setId(id.map(id => id === removedPokemon ? null : id))
+            setRemovedPokemon('')
+        }
+    } 
+
     useEffect(() => {
-        fetch('https://pokeapi.co/api/v2/pokemon?&limit=200')
+        fetch('https://pokeapi.co/api/v2/pokemon?&limit=5')
         .then(value => value.json())
         .then(data => {
             setPokemons(data.results)
@@ -31,7 +38,10 @@ export default function Provider({ children }) {
         pokemons,
         setPokemons,
         id,
-        setSlot
+        setSlot,
+        removedPokemon,
+        setRemovedPokemon,
+        removeFromSlot
     }
 
     return ( 
