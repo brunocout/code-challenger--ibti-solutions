@@ -6,7 +6,7 @@ import './index.css'
 
 const CreateTeam = ({ className = ''}) => {
 
-    const { id, setRemovedPokemon, setResetSlot } = useContext(AppContext)
+    const { pokemonSlot, setRemovedPokemon, setResetSlot } = useContext(AppContext)
 
     return ( 
         <div className={`teams ${className}`}>
@@ -14,7 +14,7 @@ const CreateTeam = ({ className = ''}) => {
                 <input type="text" placeholder='My Team'/><Edit />
             </div>
             <div className="pokeball-container" >
-                {id.map(id => <Pokeball id={id} setRemovedPokemon={setRemovedPokemon} setResetSlot={setResetSlot}/>) }
+                {pokemonSlot.map(item => <Pokeball item={item} setRemovedPokemon={setRemovedPokemon} setResetSlot={setResetSlot}/>) }
             </div>
         </div>
      );

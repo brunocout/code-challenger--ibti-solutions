@@ -32,6 +32,16 @@
     justify-content: space-evenly;
 }
 
+.selected {
+    position: absolute;
+    display: flex;
+    margin: 30px;
+    width: 30px;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.8;
+}
+
 .type1 {
     width: 35px;
     height: 0px;

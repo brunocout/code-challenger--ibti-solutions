@@ -5,23 +5,26 @@ export const AppContext = createContext()
 export default function Provider({ children }) {
 
     const [removedPokemon, setRemovedPokemon] = useState('')
+    const [removedId, setRemovedId] = useState()
     const [pokemons, setPokemons] = useState([])
-    const [id, setId] = useState(new Array(6).fill(null))
+    const [pokemonSlot, setPokemonSlot] = useState(new Array(6).fill(null))
 
     const setSlot = (newPokemon) => {
-        const newSlots = [...id];
+        const newSlots = [...pokemonSlot];
         for (let i = 0; i < newSlots.length; i += 1) {
           const pokemon = newSlots[i];
           if (pokemon) continue;
           newSlots[i] = newPokemon;
-          setId(newSlots);
+          setPokemonSlot(newSlots);
+          setRemovedId('')
           break;
         }
     }
 
     const removeFromSlot = () => {
-        if (removedPokemon.length != 0 && id !== null) {
-            setId(id.map(id => id === removedPokemon ? null : id))
+        if (removedPokemon.length != 0 && pokemonSlot !== null) {
+            setPokemonSlot(pokemonSlot.map(id => id === removedPokemon ? null + setRemovedId(id.id) : id))
+            console.log(removedId)
             setRemovedPokemon('')
         }
     }
@@ -37,11 +40,12 @@ export default function Provider({ children }) {
     const values = {
         pokemons,
         setPokemons,
-        id,
+        pokemonSlot,
         setSlot,
         removedPokemon,
         setRemovedPokemon,
-        removeFromSlot
+        removeFromSlot,
+        removedId
     }
 
     return ( 

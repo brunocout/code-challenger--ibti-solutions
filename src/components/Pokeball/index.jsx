@@ -2,18 +2,18 @@ import React, { useState, useEffect } from 'react';
 import './index.css'
 import Vector from '../SvgIcon/Vector';
 
-const Pokeball = ({ id, setRemovedPokemon }) => {
+const Pokeball = ({ item, setRemovedPokemon }) => {
 
     const handleOnClick = () => {
-        if (id.length != 0 && id !== null) {
-            setRemovedPokemon(id)
+        if (item.length != 0 && item !== null) {
+            setRemovedPokemon(item)
         }
     }
 
     return ( 
         <div className="pokeball" onClick={handleOnClick}>
-            <Vector color={id?.color}/>
-            <img src={id?.sprite} />
+            <Vector color={item?.color}/>
+            <img src={item?.sprite} />
         </div>
      );
 }
