@@ -1,6 +1,7 @@
 .pokeball-vector {
     display: flex;
     z-index: -1;
+    position: absolute;
     justify-content: center;
     flex-direction: column;
 }

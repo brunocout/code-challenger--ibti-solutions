@@ -24,7 +24,7 @@ export default function Provider({ children }) {
             setId(id.map(id => id === removedPokemon ? null : id))
             setRemovedPokemon('')
         }
-    } 
+    }
 
     useEffect(() => {
         fetch('https://pokeapi.co/api/v2/pokemon?&limit=5')

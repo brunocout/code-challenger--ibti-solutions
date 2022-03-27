@@ -4,11 +4,14 @@ import { AppContext } from '../../hooks/context/Context';
 
 const Pokemon = ({ items }) => {
 
-
     const { setSlot } = useContext(AppContext)
     const [pokemonSprite, setPokemonSprite] = useState([])
     const [upperCaseName, setUpperCaseName] = useState([])
-    const [pokemonId, setPokemonId] = useState()
+    const [pokemonId, setPokemonId] = useState({
+        id: '',
+        color: '',
+        sprite: ''
+    })
     const [type, setType] = useState({
         type1: '',
         type2: ''
@@ -27,17 +30,19 @@ const Pokemon = ({ items }) => {
                 type1: data.types[0]?.type.name,
                 type2: data.types[1]?.type.name
             })
-            setPokemonId(data.id)
+            setPokemonId({
+                id: data.id,
+                color: data.types[0]?.type.name,
+                sprite: data.sprites.front_default
+            })
             setUpperCaseName(data.name[0].toUpperCase() + data.name.slice(1))
         })
+        
     }, [])
-
-    
-    
 
     return ( 
         <div className="pokemon" onClick={handleOnClick}>
-            <div className='pokemon-id'>#{pokemonId}</div>
+            {/* <div className='pokemon-id'>#{pokemonId}</div> */}
             <div className="pokemon-sprite">
                 <img src={pokemonSprite}/>
             </div>

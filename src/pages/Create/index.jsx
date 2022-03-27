@@ -21,8 +21,8 @@ const Create = () => {
             <div className='main-create'>
                 <CreateTeam />
                 <div className='button-container'>
+                    <button style={removedPokemon.length == 0 ? buttonOp : null} onClick={removeFromSlot}><img src={dbutton} width={50}/></button>
                     <button style={buttonOp}><img src={cbutton} width={50}/></button>
-                    <button style={removedPokemon.length === 0 ? buttonOp : null} onClick={removeFromSlot}><img src={dbutton} width={50}/></button>
                 </div>
                 <Pokedex/>
             </div>
