@@ -6,9 +6,13 @@ export default function Provider({ children }) {
 
     const [removedPokemon, setRemovedPokemon] = useState('')
     const [removedId, setRemovedId] = useState()
-    const [selectId, setSelectId] = useState('')
     const [pokemons, setPokemons] = useState([])
     const [pokemonSlot, setPokemonSlot] = useState(new Array(6).fill(null))
+    const [owner, setOwner] = useState('')
+    const [team, setTeam] = useState({
+        id: '',
+        owner: ''
+    })
     const pokeball = document.querySelectorAll('.pokeball')
 
     const setSlot = (newPokemon) => {
@@ -16,9 +20,9 @@ export default function Provider({ children }) {
         for (let i = 0; i < newSlots.length; i += 1) {
           const pokemon = newSlots[i];
           if (pokemon) continue;
-          newSlots[i] = newPokemon;
-          setPokemonSlot(newSlots);
-          setRemovedId('')
+            newSlots[i] = newPokemon;
+            setPokemonSlot(newSlots);
+            setRemovedId('')
           break;
         }
     }
@@ -34,7 +38,7 @@ export default function Provider({ children }) {
     useEffect(() => {
         for (let i = 0; i < pokeball.length; i++) {
             if (removedPokemon.length == 0) {
-                pokeball[i].classList.add('isGray')
+                pokeball[i].classList.remove('isGray')
             }
         }
     }, [removedPokemon])
@@ -46,8 +50,22 @@ export default function Provider({ children }) {
         }
     }
 
+    const createTeam = () => {
+        if (owner.length != 0) {
+            setTeam({
+                id: pokemonSlot.map(id => id.id),
+                owner: owner
+            })
+            console.log('success')
+            console.log(team)
+        } else {
+            console.log('error')
+        }
+        
+    }
+
     useEffect(() => {
-        fetch('https://pokeapi.co/api/v2/pokemon?&limit=5')
+        fetch('https://pokeapi.co/api/v2/pokemon?&limit=10')
         .then(value => value.json())
         .then(data => {
             setPokemons(data.results)
@@ -63,7 +81,10 @@ export default function Provider({ children }) {
         addPokemonToRemove,
         removeFromSlot,
         removedId,
-        setSelectId
+        createTeam,
+        owner,
+        setOwner,
+        setTeam
     }
 
     return ( 

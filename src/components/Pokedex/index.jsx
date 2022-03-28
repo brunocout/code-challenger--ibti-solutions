@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AppContext } from '../../hooks/context/Context';
 import Pokemon from '../Pokemon'
 import './index.css'
@@ -6,12 +6,13 @@ import './index.css'
 const Pokedex = () => {
 
     const { pokemons } = useContext(AppContext)
+    const [count, setCount] = useState(0)
 
     return ( 
         <div className="pokedex-container">
             <h1>Choose 6 pokémons:</h1>
             <div className="pokemons">
-                {pokemons.map(items => <Pokemon items={items}/>)}
+                {pokemons.map(items => <Pokemon items={items} setCount={setCount} count={count}/>)}
             </div>
         </div>
      );

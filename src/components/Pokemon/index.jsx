@@ -3,7 +3,7 @@ import './index.css'
 import { AppContext } from '../../hooks/context/Context';
 import cbutton from '../../assets/svg/cbutton.svg'
 
-const Pokemon = ({ items }) => {
+const Pokemon = ({ items, count, setCount }) => {
 
     const { setSlot, removedId } = useContext(AppContext)
     const [pokemonSprite, setPokemonSprite] = useState([])
@@ -21,7 +21,10 @@ const Pokemon = ({ items }) => {
 
     const handleOnClick = () => {
         setSlot(pokemon)
-        setSelected(true)
+        if (count < 6) {
+            setSelected(true)
+            setCount(count + 1) 
+        }
     }
 
     useEffect(() => {
@@ -43,8 +46,9 @@ const Pokemon = ({ items }) => {
     }, [])
 
     useEffect(() => {
-        if (removedId === pokemon.id) {
+        if (removedId === pokemon.id && count > 0) {
             setSelected(false)
+            setCount(count - 1)
         }
     }, [removedId])
 

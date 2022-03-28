@@ -18,6 +18,7 @@
 }
 
 .pokemon-sprite {
+    position: relative;
     margin: auto;
     width: 80%;
 }

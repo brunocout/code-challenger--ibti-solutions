@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Header from '../../components/Header';
 import CreateTeam from '../../components/Team/CreateTeam';
 import Pokedex from '../../components/Pokedex';
@@ -9,7 +9,7 @@ import { AppContext } from '../../hooks/context/Context';
 
 const Create = () => {
 
-    const { removeFromSlot, removedPokemon } = useContext(AppContext)
+    const { removeFromSlot, removedPokemon, createTeam, pokemonSlot } = useContext(AppContext)
 
     const buttonOp = {
         opacity: 0.3
@@ -21,8 +21,12 @@ const Create = () => {
             <div className='main-create'>
                 <CreateTeam />
                 <div className='button-container'>
-                    <button style={removedPokemon.length == 0 ? buttonOp : null} onClick={removeFromSlot}><img src={dbutton} width={50}/></button>
-                    <button style={buttonOp}><img src={cbutton} width={50}/></button>
+                    <button style={removedPokemon.length == 0 ? buttonOp : null} onClick={removeFromSlot}>
+                        <img src={dbutton} width={50}/>
+                    </button>
+                    <button style={pokemonSlot.slice(5)[0]?.id === undefined ? buttonOp : null} onClick={createTeam}>
+                        <img src={cbutton} width={50}/>
+                    </button>
                 </div>
                 <Pokedex/>
             </div>
