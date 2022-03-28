@@ -6,8 +6,10 @@ export default function Provider({ children }) {
 
     const [removedPokemon, setRemovedPokemon] = useState('')
     const [removedId, setRemovedId] = useState()
+    const [selectId, setSelectId] = useState('')
     const [pokemons, setPokemons] = useState([])
     const [pokemonSlot, setPokemonSlot] = useState(new Array(6).fill(null))
+    const pokeball = document.querySelectorAll('.pokeball')
 
     const setSlot = (newPokemon) => {
         const newSlots = [...pokemonSlot];
@@ -21,10 +23,25 @@ export default function Provider({ children }) {
         }
     }
 
+    const addPokemonToRemove = (toRemove, select) => {
+        setRemovedPokemon(toRemove)
+        for (let i = 0; i < pokeball.length; i++) {
+            pokeball[i].classList.add('isGray')
+        }
+        select.classList.remove('isGray')
+    }
+
+    useEffect(() => {
+        for (let i = 0; i < pokeball.length; i++) {
+            if (removedPokemon.length == 0) {
+                pokeball[i].classList.add('isGray')
+            }
+        }
+    }, [removedPokemon])
+
     const removeFromSlot = () => {
         if (removedPokemon.length != 0 && pokemonSlot !== null) {
             setPokemonSlot(pokemonSlot.map(id => id === removedPokemon ? null + setRemovedId(id.id) : id))
-            console.log(removedId)
             setRemovedPokemon('')
         }
     }
@@ -43,9 +60,10 @@ export default function Provider({ children }) {
         pokemonSlot,
         setSlot,
         removedPokemon,
-        setRemovedPokemon,
+        addPokemonToRemove,
         removeFromSlot,
-        removedId
+        removedId,
+        setSelectId
     }
 
     return ( 

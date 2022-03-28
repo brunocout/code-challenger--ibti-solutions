@@ -12,3 +12,7 @@
     width: 100%;
 }
 
+.isGray {
+    filter: grayscale(80%);
+}
+
