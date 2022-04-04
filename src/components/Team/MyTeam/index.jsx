@@ -2,20 +2,12 @@ import React from 'react';
 import Pokeball from '../../Pokeball';
 import './index.css'
 
-const MyTeam = ({ className = '' }) => {
+const MyTeam = ({ className = '', data }) => {
+
     return ( 
         <div className={`teams ${className}`}>
-            <h1>My Team</h1>
-            <div className='left'>
-                <Pokeball fill='white'/>
-                <Pokeball fill='white'/>
-                <Pokeball fill='white'/>
-            </div>
-            <div className='right'>
-                <Pokeball fill='white'/>
-                <Pokeball fill='white'/>
-                <Pokeball fill='white'/>
-            </div>
+            <h1>{data.owner}'s Team</h1>
+            <div className="pokeball-container">{data.pokemonid.map(id => <Pokeball pokemonid={id}/>)}</div>
         </div>
      );
 }

@@ -14,7 +14,7 @@ const CreateTeam = ({ className = ''}) => {
                 <input type="text" placeholder='My Team' onChange={e => setOwner(e.target.value)} value={owner}/><Edit />
             </div>
             <div className="pokeball-container" >
-                {pokemonSlot.map(item => <Pokeball item={item} addPokemonToRemove={addPokemonToRemove} />) }
+                {pokemonSlot.map(id => <Pokeball pokemonid={id?.id} addPokemonToRemove={addPokemonToRemove} />) }
             </div>
         </div>
      );

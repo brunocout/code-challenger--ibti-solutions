@@ -1,6 +1,7 @@
 .pokemon {
     text-align: center;
     align-items: center;
+    width: 100px;
     cursor: pointer;
 }
 

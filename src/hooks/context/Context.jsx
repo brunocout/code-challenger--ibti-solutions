@@ -9,11 +9,9 @@ export default function Provider({ children }) {
     const [pokemons, setPokemons] = useState([])
     const [pokemonSlot, setPokemonSlot] = useState(new Array(6).fill(null))
     const [owner, setOwner] = useState('')
-    const [team, setTeam] = useState({
-        id: '',
-        owner: ''
-    })
+    const [resetSlot, setResetSlot] = useState('')
     const pokeball = document.querySelectorAll('.pokeball')
+    
 
     const setSlot = (newPokemon) => {
         const newSlots = [...pokemonSlot];
@@ -27,12 +25,17 @@ export default function Provider({ children }) {
         }
     }
 
-    const addPokemonToRemove = (toRemove, select) => {
+    const addPokemonToRemove = (toRemove, select, setPokemonDet) => {
         setRemovedPokemon(toRemove)
+        setResetSlot({
+            setPokemonDet
+        })
+        console.log(resetSlot)
         for (let i = 0; i < pokeball.length; i++) {
             pokeball[i].classList.add('isGray')
         }
         select.classList.remove('isGray')
+        
     }
 
     useEffect(() => {
@@ -45,27 +48,39 @@ export default function Provider({ children }) {
 
     const removeFromSlot = () => {
         if (removedPokemon.length != 0 && pokemonSlot !== null) {
-            setPokemonSlot(pokemonSlot.map(id => id === removedPokemon ? null + setRemovedId(id.id) : id))
+            setPokemonSlot(pokemonSlot.map(id => id.id === removedPokemon ? null + setRemovedId(id.id) : id))
             setRemovedPokemon('')
+            resetSlot.setPokemonDet('')
         }
     }
 
     const createTeam = () => {
         if (owner.length != 0) {
-            setTeam({
-                id: pokemonSlot.map(id => id.id),
-                owner: owner
-            })
-            console.log('success')
-            console.log(team)
+            postTeam()
         } else {
             console.log('error')
         }
-        
+    }
+
+    const postTeam = () => {
+        fetch("http://localhost:3001/teams", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                pokemonid: pokemonSlot.map(id => id.id),
+                owner: owner
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+        })
     }
 
     useEffect(() => {
-        fetch('https://pokeapi.co/api/v2/pokemon?&limit=10')
+        fetch('https://pokeapi.co/api/v2/pokemon?&limit=20')
         .then(value => value.json())
         .then(data => {
             setPokemons(data.results)
@@ -83,8 +98,7 @@ export default function Provider({ children }) {
         removedId,
         createTeam,
         owner,
-        setOwner,
-        setTeam
+        setOwner
     }
 
     return ( 
