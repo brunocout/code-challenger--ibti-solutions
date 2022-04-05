@@ -17,7 +17,7 @@ const Create = () => {
 
     return ( 
         <div className="create-container">
-            <Header title='teams' href='/'/>
+            <Header title='teams' href='/code-challenger--ibti-solutions/'/>
             <div className='main-create'>
                 <CreateTeam />
                 <div className='button-container'>

@@ -11,8 +11,6 @@ export default function Provider({ children }) {
     const [owner, setOwner] = useState('')
     const [resetSlot, setResetSlot] = useState('')
     const pokeball = document.querySelectorAll('.pokeball')
-    // const sentinel = document.querySelector('.sentinel')
-    
 
     // First fetch of pokemons
     useEffect(() => {
@@ -24,25 +22,25 @@ export default function Provider({ children }) {
     }, [])
 
     // Infinite Scroll in Pokedex
-    // useEffect(() => {
-    //     const isObserver = new IntersectionObserver(entries => {  
-    //         if(entries.some(entry => entry.isIntersecting)) {
-    //             console.log('Observed')
-    //             requestMorePokemons()
-    //         }
-    //     })
+    useEffect(() => {
+        const isObserver = new IntersectionObserver(entries => {  
+            if(entries.some(entry => entry.isIntersecting)) {
+                console.log('Observed')
+                requestMorePokemons()
+            }
+        })
 
-    //     isObserver.observe(sentinel)
-    //     return () => isObserver.disconnect()
-    // }, [pokemons])
+        isObserver.observe(document.querySelector('.sentinel'))
+        return () => isObserver.disconnect()
+    }, [pokemons])
 
-    // const requestMorePokemons = () => {
-    //     fetch(`https://pokeapi.co/api/v2/pokemon?offset=${pokemons.length}&limit=20`)
-    //     .then(value => value.json())
-    //     .then(data => {
-    //         setPokemons([...pokemons, ...data.results])
-    //     })
-    // }
+    const requestMorePokemons = () => {
+        fetch(`https://pokeapi.co/api/v2/pokemon?offset=${pokemons.length}&limit=20`)
+        .then(value => value.json())
+        .then(data => {
+            setPokemons([...pokemons, ...data.results])
+        })
+    }
 
     // Set Pokemons to specific slot
     const setSlot = (newPokemon) => {

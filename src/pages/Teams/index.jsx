@@ -17,7 +17,7 @@ const Teams = () => {
 
     return ( 
         <div className="team-container">
-            <Header title='create new team' href='/create'/>
+            <Header title='create new team' href='/code-challenger--ibti-solutions/create'/>
             <div className='main-team'>
               {team.map(data => <MyTeam className='bar' data={data}/>)}  
             </div>

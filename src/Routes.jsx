@@ -1,5 +1,5 @@
 import React from 'react';
-import {Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Create from "./pages/Create";
 import Teams from "./pages/Teams";
 
@@ -7,8 +7,8 @@ import Teams from "./pages/Teams";
 const MainRoutes = () => {
     return ( 
         <Routes>
-            <Route path="/" element={<Teams/>}/>
-            <Route path="/create" element={<Create/>}/>
+            <Route path="/code-challenger--ibti-solutions/" element={<Teams/>}/>
+            <Route path="/code-challenger--ibti-solutions/create" element={<Create/>}/>
         </Routes>
      );
 }
