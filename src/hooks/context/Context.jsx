@@ -21,30 +21,6 @@ export default function Provider({ children }) {
         })
     }, [])
 
-    // Infinite Scroll in Pokedex
-    useEffect(() => {
-        const sentinel = document.querySelector('.sentinel')
-        const isObserver = new IntersectionObserver(entries => {  
-            if(entries.some(entry => entry.isIntersecting)) {
-                requestMorePokemons()
-            }
-        })
-
-        if (sentinel != null) {
-            isObserver.observe(sentinel)
-        }
-        
-        return () => isObserver.disconnect()
-    }, [pokemons])
-
-    const requestMorePokemons = () => {
-        fetch(`https://pokeapi.co/api/v2/pokemon?offset=${pokemons.length}&limit=20`)
-        .then(value => value.json())
-        .then(data => {
-            setPokemons([...pokemons, ...data.results])
-        })
-    }
-
     // Set Pokemons to specific slot
     const setSlot = (newPokemon) => {
         const newSlots = [...pokemonSlot];
