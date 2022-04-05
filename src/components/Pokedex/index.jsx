@@ -13,6 +13,7 @@ const Pokedex = () => {
             <h1>Choose 6 pokémons:</h1>
             <div className="pokemons">
                 {pokemons.map(items => <Pokemon items={items} setCount={setCount} count={count}/>)}
+                <span className='sentinel'></span>
             </div>
         </div>
      );

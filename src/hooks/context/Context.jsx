@@ -13,6 +13,38 @@ export default function Provider({ children }) {
     const pokeball = document.querySelectorAll('.pokeball')
     
 
+    // First fetch of pokemons
+    useEffect(() => {
+        fetch('https://pokeapi.co/api/v2/pokemon')
+        .then(value => value.json())
+        .then(data => {
+            setPokemons(data.results)
+        })
+    }, [])
+
+    // Infinite Scroll in Pokedex
+    useEffect(() => {
+        const isObserver = new IntersectionObserver(entries => {  
+            if(entries.some(entry => entry.isIntersecting)) {
+                console.log('Observed')
+                requestMorePokemons()
+            }
+        })
+
+        isObserver.observe(document.querySelector('.sentinel'))
+        return () => isObserver.disconnect()
+
+    }, [pokemons])
+
+    const requestMorePokemons = () => {
+        fetch(`https://pokeapi.co/api/v2/pokemon?offset=${pokemons.length}&limit=20`)
+        .then(value => value.json())
+        .then(data => {
+            setPokemons([...pokemons, ...data.results])
+        })
+    }
+
+    // Set Pokemons to specific slot
     const setSlot = (newPokemon) => {
         const newSlots = [...pokemonSlot];
         for (let i = 0; i < newSlots.length; i += 1) {
@@ -25,11 +57,10 @@ export default function Provider({ children }) {
         }
     }
 
+    // Adding pokemons that will be removed
     const addPokemonToRemove = (toRemove, select, setPokemonDet) => {
         setRemovedPokemon(toRemove)
-        setResetSlot({
-            setPokemonDet
-        })
+        setResetSlot({setPokemonDet})
         console.log(resetSlot)
         for (let i = 0; i < pokeball.length; i++) {
             pokeball[i].classList.add('isGray')
@@ -38,6 +69,7 @@ export default function Provider({ children }) {
         
     }
 
+    // Highlighting specific pokemon
     useEffect(() => {
         for (let i = 0; i < pokeball.length; i++) {
             if (removedPokemon.length == 0) {
@@ -46,19 +78,20 @@ export default function Provider({ children }) {
         }
     }, [removedPokemon])
 
+    // Removing specific pokemon from slot
     const removeFromSlot = () => {
         if (removedPokemon.length != 0 && pokemonSlot !== null) {
-            setPokemonSlot(pokemonSlot.map(id => id.id === removedPokemon ? null + setRemovedId(id.id) : id))
+            setPokemonSlot(pokemonSlot.map(id => id?.id === removedPokemon ? null + setRemovedId(id.id) : id))
             setRemovedPokemon('')
             resetSlot.setPokemonDet('')
         }
     }
 
+    // Add team on database
     const createTeam = () => {
         if (owner.length != 0) {
             postTeam()
-        } else {
-            console.log('error')
+            location.reload()
         }
     }
 
@@ -78,14 +111,6 @@ export default function Provider({ children }) {
             console.log(data)
         })
     }
-
-    useEffect(() => {
-        fetch('https://pokeapi.co/api/v2/pokemon?&limit=20')
-        .then(value => value.json())
-        .then(data => {
-            setPokemons(data.results)
-        })
-    }, [])
 
     const values = {
         pokemons,

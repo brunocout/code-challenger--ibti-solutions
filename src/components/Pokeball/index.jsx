@@ -21,7 +21,7 @@ const Pokeball = ({ pokemonid, addPokemonToRemove }) => {
     
     const handleOnClick = (e) => {
         const pokeball = e.target.closest('.pokeball')
-        if (pokemonid.length != 0 && pokemonid !== null) {
+        if (pokemonid.length != 0 && pokemonid != null) {
             addPokemonToRemove(pokemonid, pokeball, setPokemonDet)
         }
     }
@@ -29,7 +29,7 @@ const Pokeball = ({ pokemonid, addPokemonToRemove }) => {
     return ( 
         <div className="pokeball" onClick={typeof addPokemonToRemove === 'function' ? handleOnClick : null}>
             <Vector color={pokemonDet?.color}/>
-            <img src={pokemonDet?.sprite} />
+            <img className='pokemon-img' src={pokemonDet?.sprite} />
         </div>
      );
 }

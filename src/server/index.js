@@ -2,6 +2,7 @@ const express = require("express")
 const teamsRoutes = require("./teams.routes")
 const app = express()
 
+// Access Control
 app.use((req, res, next) => {
 
     res.setHeader('Access-Control-Allow-Origin', '*');

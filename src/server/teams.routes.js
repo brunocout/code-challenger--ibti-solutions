@@ -4,8 +4,6 @@ const { PrismaClient } = require("@prisma/client")
 
 const prisma = new PrismaClient()
 
-
-
 // C
 teamsRoutes.post("/teams", async (req, res) => {
     const { pokemonid, owner } = req.body
