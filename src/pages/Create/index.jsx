@@ -20,9 +20,7 @@ const Create = () => {
             }
         })
 
-        if (sentinel != null) {
-            isObserver.observe(sentinel)
-        }
+        isObserver.observe(sentinel)
         
         return () => isObserver.disconnect()
     }, [pokemons])
