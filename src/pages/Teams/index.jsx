@@ -8,7 +8,7 @@ const Teams = () => {
     const [team, setTeam] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:3001/teams")
+        fetch("https://code-challenge--ibti-solutions.herokuapp.com/teams")
         .then(res => res.json())
         .then(data => {
             setTeam(data)
