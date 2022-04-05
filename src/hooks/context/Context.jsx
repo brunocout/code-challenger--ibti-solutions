@@ -23,14 +23,17 @@ export default function Provider({ children }) {
 
     // Infinite Scroll in Pokedex
     useEffect(() => {
+        const sentinel = document.querySelector('.sentinel')
         const isObserver = new IntersectionObserver(entries => {  
             if(entries.some(entry => entry.isIntersecting)) {
-                console.log('Observed')
                 requestMorePokemons()
             }
         })
 
-        isObserver.observe(document.querySelector('.sentinel'))
+        if (sentinel != null) {
+            isObserver.observe(sentinel)
+        }
+        
         return () => isObserver.disconnect()
     }, [pokemons])
 
