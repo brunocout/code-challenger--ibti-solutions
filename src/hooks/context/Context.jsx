@@ -96,7 +96,7 @@ export default function Provider({ children }) {
     }
 
     const postTeam = () => {
-        fetch("http://localhost:3001/teams", {
+        fetch("https://code-challenge--ibti-solutions.herokuapp.com/teams", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
