@@ -11,6 +11,10 @@ const Create = () => {
 
     const { removeFromSlot, removedPokemon, createTeam, pokemonSlot, pokemons, setPokemons } = useContext(AppContext)
 
+    const buttonOp = {
+        opacity: 0.3
+    }
+
     // Infinite Scroll in Pokedex
     useEffect(() => {
         const sentinel = document.querySelector('.sentinel')
@@ -31,10 +35,6 @@ const Create = () => {
         .then(data => {
             setPokemons([...pokemons, ...data.results])
         })
-    }
-
-    const buttonOp = {
-        opacity: 0.3
     }
 
     return ( 
