@@ -3,20 +3,21 @@
     <img width="250" src="./src/assets/toreadme/logo.png">
   </a>
 </p>
-<p align="center">
-  🚧 <img src="https://img.shields.io/badge/-IN%20PROGRESS-yellow"/> 🚧  
-</p>
 
 ##
 
-<p align="center">This application was created based on the challenge of ibti-solutions, The challenge is to create a team of pokemons, bringing data from pokeApi and creating and adding to the database.</p>
+<p align="center">This application was created based on the challenge of ibti-solutions, the challenge is to create a team of pokemons, bringing data from pokeApi and creating and adding to the database.</p>
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
-  <img src="./src/assets/toreadme/screen1.png" width="700px">
+  <img src="./src/assets/toreadme/gif.gif" width="800px">
 </p>
 
 
 [ English ](./README.md)  |  [ Português ](./README-br.md)
+
+## 📃 Description
+
+This application was a challenge for me, as I had not yet made a full stack project. From the back to the front there were many challenges, which I managed to complete with a lot of persistence and patience, they were exciting challenges that taught me a lot.
 
 ## 🕹️ Demo
 
