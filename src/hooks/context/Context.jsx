@@ -4,6 +4,7 @@ export const AppContext = createContext()
 
 export default function Provider({ children }) {
 
+    // States of the application
     const [removedPokemon, setRemovedPokemon] = useState('')
     const [removedId, setRemovedId] = useState()
     const [pokemons, setPokemons] = useState([])

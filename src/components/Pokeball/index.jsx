@@ -6,6 +6,7 @@ const Pokeball = ({ pokemonid, addPokemonToRemove, reload }) => {
 
     const [pokemonDet, setPokemonDet] = useState([])
 
+    // Get pokemons by id
     useEffect(() => {
         if (pokemonid != undefined) {
             fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonid}`)
@@ -19,16 +20,18 @@ const Pokeball = ({ pokemonid, addPokemonToRemove, reload }) => {
         }
     }, [pokemonid])
 
-    useEffect(() => {
-        setPokemonDet('')
-    }, [reload])
-    
+    // Add pokemons and specific pokeball
     const handleOnClick = (e) => {
         const pokeball = e.target.closest('.pokeball')
         if (pokemonid.length != 0 && pokemonid != null) {
             addPokemonToRemove(pokemonid, pokeball, setPokemonDet)
         }
     }
+
+    // Reload component
+    useEffect(() => {
+        setPokemonDet('')
+    }, [reload])
 
     return ( 
         <div className="pokeball" onClick={typeof addPokemonToRemove === 'function' ? handleOnClick : null}>

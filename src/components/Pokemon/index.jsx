@@ -5,6 +5,7 @@ import cbutton from '../../assets/svg/cbutton.svg'
 
 const Pokemon = ({ items, count, setCount }) => {
 
+    // States of pokemons
     const { setSlot, removedId, reload } = useContext(AppContext)
     const [pokemonSprite, setPokemonSprite] = useState([])
     const [upperCaseName, setUpperCaseName] = useState([])
@@ -19,6 +20,7 @@ const Pokemon = ({ items, count, setCount }) => {
     })
     const [selected, setSelected] = useState(false)
 
+    // Set specific pokemon to slot
     const handleOnClick = () => {
         setSlot(pokemon)
         if (count < 6) {
@@ -27,6 +29,7 @@ const Pokemon = ({ items, count, setCount }) => {
         }
     }
 
+    // Fetching pokemon data
     useEffect(() => {
         fetch(`${items.url}`)
         .then(value => value.json())
@@ -45,6 +48,7 @@ const Pokemon = ({ items, count, setCount }) => {
         })
     }, [])
 
+    // Removing selection
     useEffect(() => {
         if (removedId === pokemon.id && count > 0) {
             setSelected(false)

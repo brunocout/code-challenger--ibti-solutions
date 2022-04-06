@@ -8,6 +8,7 @@ const CreateTeam = ({ className = ''}) => {
 
     const { pokemonSlot, addPokemonToRemove, owner, setOwner, reload } = useContext(AppContext)
 
+    // Validating value of input
     const handleOnChange = (e) => {
         const pattern = /[@#$%¨*()&=+^~?/|:;><,!§+``´´"".-]/
         if (!pattern.test(e.target.value)) {

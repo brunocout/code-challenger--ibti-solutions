@@ -22,6 +22,7 @@ const Create = () => {
         opacity: 0.3
     }
 
+    // Calling create team function and set message success or warning
     const handleOnClick = () => {
         if (owner.length != 0) {
             createTeam()

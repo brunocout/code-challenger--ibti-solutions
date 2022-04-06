@@ -7,6 +7,7 @@ const Teams = () => {
 
     const [team, setTeam] = useState([])
 
+    // Fetching teams of database
     useEffect(() => {
         fetch("https://code-challenge--ibti-solutions.herokuapp.com/teams")
         .then(res => res.json())
