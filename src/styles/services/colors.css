@@ -4,6 +4,9 @@
     --secondary-color: #E9EAEC;
     --tertary-color: #90ADC6;
     /* System Colors */
+    --success-color: #05CE91;
+    --error-color: #FF6161;
+    --warning-color: #FFAD49;
     --background-color: #E5E5E5;
     --textHeader-color: #ffffff;
     --textBody-color: #333652;

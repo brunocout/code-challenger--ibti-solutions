@@ -66,17 +66,15 @@ export default function Provider({ children }) {
 
     // Add team on database
     const createTeam = () => {
-        if (owner.length != 0) {
-            postTeam()
-            if (!reload) {
-                setReload(true) 
-            } else {
-                setReload(false)
-            }
-            setPokemonSlot(pokemonSlot.map(id => id?.id === removedPokemon ? setRemovedId(id.id) : id))
-            setOwner('')
-            setPokemonSlot(new Array(6).fill(null))
+        postTeam()
+        if (!reload) {
+            setReload(true) 
+        } else {
+            setReload(false)
         }
+        setPokemonSlot(pokemonSlot.map(id => id?.id === removedPokemon ? setRemovedId(id.id) : id))
+        setOwner('')
+        setPokemonSlot(new Array(6).fill(null))
     }
 
     const postTeam = () => {
