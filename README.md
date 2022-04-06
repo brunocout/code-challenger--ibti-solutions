@@ -9,10 +9,10 @@
 
 ##
 
-<p align="center">This application was created based on the challenge of ibti-solutions.</p>
+<p align="center">This application was created based on the challenge of ibti-solutions, The challenge is to create a team of pokemons, bringing data from pokeApi and creating and adding to the database.</p>
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
-  <img alt="Boardgame" title="#Boardgame" src="./assets/toreadme/screen1.png" width="700px">
+  <img src="./src/assets/toreadme/screen1.png" width="700px">
 </p>
 
 
@@ -28,6 +28,7 @@ Access the demo version of the website here:
 - [x] Create Teams
 - [x] Fetching Teams of Database
 - [x] UI Specs
+- [x] Infinite Scroll on Pokedex
 
 ## 🎨 Layout
 
@@ -36,8 +37,8 @@ The application layout:
 ### Web
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
-  <img alt="Boardgame" title="#Boardgame" src="./src/assets/toreadme/screen1.png" width="400px">
-  <img alt="WinScreen" title="#WinScreen" src="./src/assets/toreadme/screen2.png" width="400px">
+  <img src="./src/assets/toreadme/screen1.png" width="400px">
+  <img src="./src/assets/toreadme/screen2.png" width="400px">
 </p>
 
 ### Gif
