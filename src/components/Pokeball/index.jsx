@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './index.css'
 import Vector from '../SvgIcon/Vector';
 
-const Pokeball = ({ pokemonid, addPokemonToRemove }) => {
+const Pokeball = ({ pokemonid, addPokemonToRemove, reload }) => {
 
     const [pokemonDet, setPokemonDet] = useState([])
 
@@ -18,6 +18,10 @@ const Pokeball = ({ pokemonid, addPokemonToRemove }) => {
             })
         }
     }, [pokemonid])
+
+    useEffect(() => {
+        setPokemonDet('')
+    }, [reload])
     
     const handleOnClick = (e) => {
         const pokeball = e.target.closest('.pokeball')

@@ -10,6 +10,7 @@ export default function Provider({ children }) {
     const [pokemonSlot, setPokemonSlot] = useState(new Array(6).fill(null))
     const [owner, setOwner] = useState('')
     const [resetSlot, setResetSlot] = useState('')
+    const [reload, setReload] = useState(false)
     const pokeball = document.querySelectorAll('.pokeball')
 
     // First fetch of pokemons
@@ -38,7 +39,6 @@ export default function Provider({ children }) {
     const addPokemonToRemove = (toRemove, select, setPokemonDet) => {
         setRemovedPokemon(toRemove)
         setResetSlot({setPokemonDet})
-        console.log(resetSlot)
         for (let i = 0; i < pokeball.length; i++) {
             pokeball[i].classList.add('isGray')
         }
@@ -66,10 +66,17 @@ export default function Provider({ children }) {
 
     // Add team on database
     const createTeam = () => {
-        if (owner.length != 0) {
-            postTeam()
-            location.reload()
-        }
+        // if (owner.length != 0) {
+            // postTeam()
+            if (!reload) {
+                setReload(true) 
+            } else {
+                setReload(false)
+            }
+            setPokemonSlot(pokemonSlot.map(id => id?.id === removedPokemon ? setRemovedId(id.id) : id))
+            setOwner('')
+            setPokemonSlot(new Array(6).fill(null))
+        // }
     }
 
     const postTeam = () => {
@@ -100,7 +107,8 @@ export default function Provider({ children }) {
         removedId,
         createTeam,
         owner,
-        setOwner
+        setOwner,
+        reload
     }
 
     return ( 

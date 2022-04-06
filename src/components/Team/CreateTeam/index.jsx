@@ -6,7 +6,7 @@ import './index.css'
 
 const CreateTeam = ({ className = ''}) => {
 
-    const { pokemonSlot, addPokemonToRemove, owner, setOwner } = useContext(AppContext)
+    const { pokemonSlot, addPokemonToRemove, owner, setOwner, reload } = useContext(AppContext)
 
     const handleOnChange = (e) => {
         const pattern = /[@#$%¨*()&=+^~?/|:;><,!§+``´´"".-]/
@@ -23,7 +23,7 @@ const CreateTeam = ({ className = ''}) => {
                 <input type="text" placeholder='My Team' onChange={handleOnChange} value={owner} maxLength={20}/><Edit />
             </div>
             <div className="pokeball-container" >
-                {pokemonSlot.map(id => <Pokeball pokemonid={id?.id} addPokemonToRemove={addPokemonToRemove} />) }
+                {pokemonSlot.map(id => <Pokeball pokemonid={id?.id} addPokemonToRemove={addPokemonToRemove} reload={reload} />) }
             </div>
         </div>
      );

@@ -5,7 +5,7 @@ import cbutton from '../../assets/svg/cbutton.svg'
 
 const Pokemon = ({ items, count, setCount }) => {
 
-    const { setSlot, removedId } = useContext(AppContext)
+    const { setSlot, removedId, reload } = useContext(AppContext)
     const [pokemonSprite, setPokemonSprite] = useState([])
     const [upperCaseName, setUpperCaseName] = useState([])
     const [pokemon, setPokemon] = useState({
@@ -51,6 +51,11 @@ const Pokemon = ({ items, count, setCount }) => {
             setCount(count - 1)
         }
     }, [removedId])
+
+    useEffect(() => {
+        setSelected(false)
+        setCount(count - count)
+    }, [reload])
 
     return ( 
         <div className="pokemon" onClick={handleOnClick}>
