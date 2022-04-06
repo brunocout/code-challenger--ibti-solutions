@@ -17,7 +17,7 @@
 
 ## 📃 Description
 
-This application was a challenge for me, as I had not yet made a full stack project. From the back to the front there were many challenges, which I managed to complete with a lot of persistence and patience, they were exciting challenges that taught me a lot.
+This application was a challenge for me, as i had not yet made a full stack project. From the back to the front there were many challenges, which I managed to complete with a lot of persistence and patience, they were exciting challenges that taught me a lot, some concepts that I learned here I will carry with me throughout my career as a developer.
 
 ## 🕹️ Demo
 
