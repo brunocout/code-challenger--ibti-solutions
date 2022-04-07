@@ -3,7 +3,6 @@
   font-family: 'Spartan', sans-serif;
   width: 100%;
   max-width: 395px;
-  height: 100vh;
   background-color: var(--background-color);
   color: var(--text-color);
 }
