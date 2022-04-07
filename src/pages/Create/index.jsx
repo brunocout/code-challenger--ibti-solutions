@@ -16,6 +16,16 @@ const Create = () => {
         type: null,
         message: ''
     })
+    const [count, setCount] = useState(0)
+    
+    useEffect(() => {
+        pokemonSlot.map(slot => {
+            if (slot !== null) {
+                setCount(count + 1)
+            }
+        })
+            
+    }, [pokemonSlot])
     
 
     const buttonOp = {
@@ -25,6 +35,7 @@ const Create = () => {
     // Calling create team function and set message success or warning
     const handleOnClick = () => {
         if (owner.length != 0) {
+            setCount(count - count)
             createTeam()
             setMessage({
                 isVisible: true,
@@ -48,6 +59,12 @@ const Create = () => {
                 })
             }, 1500);
         }
+    }
+
+    // Calling remove from slot function and reset allowed to create
+    const handleClick = () => {
+        removeFromSlot()
+        setCount(count - 2)
     }
 
     // Infinite Scroll in Pokedex
@@ -79,10 +96,10 @@ const Create = () => {
             <div className='main-create'>
                 <CreateTeam />
                 <div className='button-container'>
-                    <button style={removedPokemon.length == 0 ? buttonOp : null} onClick={removeFromSlot}>
+                    <button style={removedPokemon.length == 0 ? buttonOp : null} onClick={handleClick}>
                         <img src={dbutton} width={50}/>
                     </button>
-                    <button style={pokemonSlot.slice(5)[0]?.id === undefined ? buttonOp : null} onClick={handleOnClick}>
+                    <button style={count < 6 ? buttonOp : null} onClick={handleOnClick}>
                         <img src={cbutton} width={50}/>
                     </button>
                 </div>
