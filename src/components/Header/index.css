@@ -12,6 +12,7 @@
     border-top: 1px solid var(--border-color);
     margin: auto;
     padding: 15px;
+    outline: none;
     width: 80%;
     text-transform: uppercase;
     font-weight: bold;
