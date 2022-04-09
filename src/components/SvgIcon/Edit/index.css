@@ -1,9 +1,0 @@
-.pokeball-vector {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-svg {
-    margin: 2px;
-}
