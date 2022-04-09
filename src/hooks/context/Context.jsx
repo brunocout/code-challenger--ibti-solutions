@@ -26,7 +26,7 @@ export default function Provider({ children }) {
     // Set Pokemons to specific slot
     const setSlot = (newPokemon) => {
         const newSlots = [...pokemonSlot];
-        for (let i = 0; i < newSlots.length; i += 1) {
+        for (let i = 0; i < newSlots.length; i++) {
           const pokemon = newSlots[i];
           if (pokemon) continue;
             newSlots[i] = newPokemon;

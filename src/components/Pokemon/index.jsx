@@ -63,7 +63,6 @@ const Pokemon = ({ items, count, setCount, id}) => {
 
     return ( 
         <div className="pokemon" onClick={handleOnClick}>
-            
             <div className='pokemon-id'>
                 <p>#{id}</p>
             </div>
