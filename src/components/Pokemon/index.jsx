@@ -3,7 +3,7 @@ import './index.css'
 import { AppContext } from '../../hooks/context/Context';
 import cbutton from '../../assets/svg/cbutton.svg'
 
-const Pokemon = ({ items, count, setCount }) => {
+const Pokemon = ({ items, count, setCount, id}) => {
 
     // States of pokemons
     const { setSlot, removedId, reload } = useContext(AppContext)
@@ -64,7 +64,9 @@ const Pokemon = ({ items, count, setCount }) => {
     return ( 
         <div className="pokemon" onClick={handleOnClick}>
             
-            <div className='pokemon-id'>#{pokemon.id}</div>
+            <div className='pokemon-id'>
+                <p>#{id}</p>
+            </div>
             <div className="pokemon-sprite">
                 {selected && <img src={cbutton} className="selected"/>}
                 <img src={pokemonSprite}/>

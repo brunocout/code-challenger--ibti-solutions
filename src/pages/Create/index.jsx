@@ -81,8 +81,8 @@ const Create = () => {
         return () => isObserver.disconnect()
     }, [pokemons])
 
-    const requestMorePokemons = () => {
-        fetch(`https://pokeapi.co/api/v2/pokemon?offset=${pokemons.length}&limit=20`)
+    const requestMorePokemons = async () => {
+        await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${pokemons.length}&limit=20`)
         .then(value => value.json())
         .then(data => {
             setPokemons([...pokemons, ...data.results])

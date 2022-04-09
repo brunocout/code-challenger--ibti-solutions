@@ -13,9 +13,13 @@
     width: 30px;
     height: 30px;
     font-weight: bold;
+    font-size: .5rem;
     border-radius: 50%;
-    font-size: 0.7rem;
     color: var(--textHeader-color);
+}
+
+.pokemon-id p {
+    font-size: .9em;
 }
 
 .pokemon-sprite {
